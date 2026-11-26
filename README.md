@@ -19,28 +19,6 @@ yang dibungkus WebView.
 - Tombol Kembali menutup dialog/galeri template; tekan dua kali untuk keluar.
 - Data disimpan otomatis dan di-flush saat aplikasi masuk latar belakang.
 
-## Cara build
-
-### A. Android Studio (paling mudah)
-1. Buka folder ini di Android Studio (Ladybug atau lebih baru), tunggu Gradle sync.
-2. `Build > Generate Signed App Bundle / APK > APK`, buat keystore baru, pilih **release**.
-3. APK ada di `app/release/`.
-
-### B. GitHub Actions (tanpa instal apa pun)
-1. Unggah folder ini ke repositori GitHub baru (branch `main`).
-2. Tab **Actions > Build APK > Run workflow**.
-3. Unduh artifact `NyieunCV-apk` (berisi APK + `SHA256.txt`).
-4. Untuk rilis dengan kunci sendiri: jalankan `./make-keystore.sh`, lalu isi secret repo
-   `KEYSTORE_B64`, `KEYSTORE_PASSWORD`, `KEY_ALIAS`, `KEY_PASSWORD`.
-   Tanpa secret, APK dipasang dengan debug key (cukup untuk pemakaian pribadi).
-
-### C. Baris perintah
-Butuh JDK 17 dan Android SDK (platform 35):
-```
-gradle assembleRelease      # atau ./gradlew bila wrapper sudah dibuat
-```
-Hasil: `app/build/outputs/apk/release/app-release.apk`.
-
 ## Memasang
 Salin APK ke ponsel, buka, dan izinkan "Pasang dari sumber ini" untuk aplikasi
 file manager/browser Anda bila diminta. Minimal Android 7.0 (API 24).
